@@ -1,5 +1,5 @@
 <?php
-$mysqli = new mysqli("localhost", "u787682332_scane", "260689", "u787682332_vscan");
+$mysqli = new mysqli("localhost", "LOGIN", "PASS", "BASE");
 if ($mysqli->connect_errno) {
     echo "РќРµ СѓРґР°Р»РѕСЃСЊ РїРѕРґРєР»СЋС‡РёС‚СЊСЃСЏ Рє MySQL: (" . $mysqli->connect_errno . ") " . $mysqli->connect_error;
     }
@@ -7,7 +7,22 @@ if ($mysqli->connect_errno) {
     $name = $_POST['name'];
     $comment = $_POST['comment'];
     $date =  date("Y-m-d H:i:s");
-if ($bcod != null)
+if ($bcod == null)
+{
+echo "733";
+echo "bcod is null";
+}
+elseif(str_replace(' ', '', $name) == null)
+{
+echo "733";
+echo "name is null";
+}
+elseif(str_replace(' ', '', $comment) == null)
+{
+echo "733";
+echo "comment is null";
+}
+else
 {
     $res = $mysqli->prepare("INSERT INTO comments (barcode, name, comment) values(?, ?, ?);");
 printf("0");
@@ -15,10 +30,6 @@ $res->bind_param('sss', $bcod, $name, $comment);
 $res->execute();
     $row = $res->fetch();
 }
-else
-{
-echo "733";
-echo "bcod is null";
-}
+
     mysqli_close($mysqli);
 ?>

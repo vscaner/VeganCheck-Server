@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 $mysqli = new mysqli("localhost", "LOGIN", "PASS", "BASE");
 if ($mysqli->connect_errno) {
     echo "Не удалось подключиться к MySQL: (" . $mysqli->connect_errno . ") " . $mysqli->connect_error;
@@ -39,6 +39,16 @@ elseif ($name == null)
 { 
 echo "733";
 echo "name is null";
+}
+elseif (str_replace(' ', '', $name) == null)
+{ 
+echo "733";
+echo "name is null";
+}
+elseif (str_replace(' ', '', $companyname) == null)
+{ 
+echo "733";
+echo "companyname is null";
 }
 elseif($bcod == null)
 {

@@ -1,5 +1,5 @@
-<?php
-$mysqli = new mysqli("localhost", "LOGIN", "PASS", "BASE");
+﻿<?php
+$mysqli = new mysqli("LOCALHOST", "LOGIN", "PASS", "BASE");
 if ($mysqli->connect_errno) {
     echo "РќРµ СѓРґР°Р»РѕСЃСЊ РїРѕРґРєР»СЋС‡РёС‚СЊСЃСЏ Рє MySQL: (" . $mysqli->connect_errno . ") " . $mysqli->connect_error;
     }

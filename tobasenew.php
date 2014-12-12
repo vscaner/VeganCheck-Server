@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 $mysqli = new mysqli("localhost", "LOGIN", "PASS", "BASE");
 if ($mysqli->connect_errno) {
     echo "Не удалось подключиться к MySQL: (" . $mysqli->connect_errno . ") " . $mysqli->connect_error;
@@ -6,13 +6,13 @@ if ($mysqli->connect_errno) {
 
     $meta = null;
     $bcod = htmlspecialchars($_POST['bcod']); 
-    $name = htmlspecialchars($_POST['name']);
-    $companyname = htmlspecialchars($_POST['companyname']);
+    $name = $_POST['name'];
+    $companyname = $_POST['companyname'];
     $veganstatus = htmlspecialchars($_POST['veganstatus']);
     $vegetstatus = htmlspecialchars($_POST['vegetstatus']);
     $gmo = htmlspecialchars($_POST['gmo']);
     $animals = htmlspecialchars($_POST['animals']);
-    $comment = htmlspecialchars($_POST['comment']);
+    $comment = $_POST['comment'];
     $user_ip = get_client_ip(); 
     $user_client_app_identificator = htmlspecialchars($_POST['user_client_app_identificator']);
     $user_client_platform_type_index = htmlspecialchars($_POST['user_client_platform_type_index']);

@@ -1,17 +1,17 @@
 <?php
-$mysqli = new mysqli("localhost", "LOGIN", "PASS", "BASE");
+$mysqli = new mysqli("localhost", "u787682332_scane", "260689", "u787682332_vscan");
 if ($mysqli->connect_errno) {
     echo "РќРµ СѓРґР°Р»РѕСЃСЊ РїРѕРґРєР»СЋС‡РёС‚СЊСЃСЏ Рє MySQL: (" . $mysqli->connect_errno . ") " . $mysqli->connect_error;
     }
     $bcod = htmlspecialchars($_POST['bcod']); 
-    $name = htmlspecialchars($_POST['name']);
-    $comment = htmlspecialchars($_POST['comment']);
+    $name = $_POST['name'];
+    $comment = $_POST['comment'];
     $date =  date("Y-m-d H:i:s");
 if ($bcod != null)
 {
-    $res = $mysqli->prepare("INSERT INTO comments (barcode, name, comment, date) values(?, ?, ?, ?);");
+    $res = $mysqli->prepare("INSERT INTO comments (barcode, name, comment) values(?, ?, ?);");
 printf("0");
-$res->bind_param('ssss', $bcod, $name, $comment, $date);
+$res->bind_param('sss', $bcod, $name, $comment);
 $res->execute();
     $row = $res->fetch();
 }
